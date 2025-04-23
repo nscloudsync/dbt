@@ -1,0 +1,14 @@
+select
+    EMPLOYEE_ID,
+    FIRST_NAME,
+    LAST_NAME,
+    EMAIL,
+    PHONE_NUMBER,
+    HIRE_DATE,
+    JOB_ID,
+    SALARY,
+    COMMISSION_PCT,
+    MANAGER_ID,
+    DEPARTMENT_ID,
+    CURRENT_TIMESTAMP AS LOAD_TIME
+from dev.stg_employees
