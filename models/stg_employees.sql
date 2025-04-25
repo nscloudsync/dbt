@@ -6,7 +6,8 @@
 
 select 
     EMPLOYEE_ID,
-    FIRST_NAME || LAST_NAME as Name,
+    FIRST_NAME,
+    LAST_NAME,
     EMAIL,
     PHONE_NUMBER,
     HIRE_DATE,
@@ -16,7 +17,7 @@ select
     MANAGER_ID,
     DEPARTMENT_ID,
     current_timestamp as LOAD_TIME
-from {{ ref('stg_employees') }}
+from {{ source('hr', 'src_employees') }}
 
 {% if is_incremental() %}
 
