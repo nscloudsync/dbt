@@ -8,3 +8,9 @@ models:
           - relationships:
               to: ref('stg_departments')
               field: department_id
+  - name: departments
+    columns:
+      - name: department_id
+        tests:
+          - not_null
+          - unique
