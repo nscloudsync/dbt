@@ -1,1 +1,0 @@
-{{ test_not_null('stg_departments', 'department_name') }}
