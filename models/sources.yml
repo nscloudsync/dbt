@@ -1,0 +1,28 @@
+version: 2
+
+sources:
+  - name: hr
+    database: source
+    schema: hr
+    tables:
+      - name: src_employees
+        loaded_at_field: load_time
+        freshness: 
+          warn_after: { count: 12, period: hour } 
+          error_after: { count: 24, period: hour }      
+        columns:
+          - name: employee_id
+            tests:
+              - not_null
+              - unique
+      - name: src_departments
+        columns:
+          - name: department_id
+            tests:
+              - not_null
+              - unique
+      - name: src_locations
+      - name: src_regions
+      - name: src_countries
+      - name: src_salary
+      - name: src_jobs

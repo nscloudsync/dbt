@@ -36,4 +36,10 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 
 models:
-  dbt_project:
+  dbt_project:    # Replace with your actual dbt project folder name
+    dim:
+      +schema: dim
+    fct:
+      +schema: fct
+    stg:
+      +schema: stg
