@@ -37,20 +37,3 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   dbt_project:
-    +pre-hook:
-      - >
-        INSERT INTO dbt.audit_log (model_name, event_type, executed_at, dbt_user)
-        VALUES ('{{ this.name }}', 'START', CURRENT_TIMESTAMP, CURRENT_USER())
-    +post-hook:
-      - >
-        INSERT INTO dbt.audit_log (model_name, event_type, executed_at, dbt_user)
-        VALUES ('{{ this.name }}', 'END', CURRENT_TIMESTAMP, CURRENT_USER())
-
-    stg:
-      +schema: stg
-
-    dim:
-      +schema: dim
-
-    fct:
-      +schema: fct
